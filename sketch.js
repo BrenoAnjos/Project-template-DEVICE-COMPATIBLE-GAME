@@ -20,15 +20,15 @@ function preload(){
 
 function setup(){
   
-  createCanvas(400,600);
+  createCanvas(windowWidth,windowHeight);
 // Movendo plano de fundo
-path=createSprite(200,200);
+path=createSprite(width/2,200);
 path.addImage(pathImg);
 path.velocityY = 4;
 
 
 //criar menino correndo 
-boy = createSprite(70,580,20,20);
+boy = createSprite(width/2,height-20,20,20);
 boy.addAnimation("SahilRunning",boyImg);
 boy.scale=0.08;
   
@@ -50,7 +50,7 @@ function draw() {
   boy.collide(edges);
   
   //código para redefinir plano de fundo
-  if(path.y > 400 ){
+  if(path.y > height ){
     path.y = height/2;
   }
   
@@ -76,8 +76,8 @@ function draw() {
         gameState=END;
         
         boy.addAnimation("SahilRunning",endImg);
-        boy.x=200;
-        boy.y=300;
+        boy.x=width/2;
+        boy.y=height/2;
         boy.scale=0.6;
         
         cashG.destroyEach();
@@ -103,44 +103,44 @@ function draw() {
 
 function createCash() {
   if (World.frameCount % 200 == 0) {
-  var cash = createSprite(Math.round(random(50, 350),40, 10, 10));
+  var cash = createSprite(Math.round(random(50, width-50),40, 10, 10));
   cash.addImage(cashImg);
   cash.scale=0.12;
   cash.velocityY = 3;
-  cash.lifetime = 150;
+  cash.lifetime = 200;
   cashG.add(cash);
   }
 }
 
 function createDiamonds() {
   if (World.frameCount % 320 == 0) {
-  var diamonds = createSprite(Math.round(random(50, 350),40, 10, 10));
+  var diamonds = createSprite(Math.round(random(50, width-50),40, 10, 10));
   diamonds.addImage(diamondsImg);
   diamonds.scale=0.03;
   diamonds.velocityY = 3;
-  diamonds.lifetime = 150;
+  diamonds.lifetime = 200;
   diamondsG.add(diamonds);
 }
 }
 
 function createJwellery() {
   if (World.frameCount % 410 == 0) {
-  var jwellery = createSprite(Math.round(random(50, 350),40, 10, 10));
+  var jwellery = createSprite(Math.round(random(50, width-50),40, 10, 10));
   jwellery.addImage(jwelleryImg);
   jwellery.scale=0.13;
   jwellery.velocityY = 3;
-  jwellery.lifetime = 150;
+  jwellery.lifetime = 200;
   jwelleryG.add(jwellery);
   }
 }
 
 function createSword(){
   if (World.frameCount % 530 == 0) {
-  var sword = createSprite(Math.round(random(50, 350),40, 10, 10));
+  var sword = createSprite(Math.round(random(50, width-50),40, 10, 10));
   sword.addImage(swordImg);
   sword.scale=0.1;
   sword.velocityY = 3;
-  sword.lifetime = 150;
+  sword.lifetime = 200;
   swordGroup.add(sword);
   }
 }
